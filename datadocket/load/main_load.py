@@ -1,7 +1,7 @@
 import json
 import csv
 
-def load_txt(filepath, mode="r", encoding="utf-8"):
+def txt(filepath, mode="r", encoding="utf-8"):
     """
     Loads the contents of a text file.
 
@@ -19,7 +19,8 @@ def load_txt(filepath, mode="r", encoding="utf-8"):
     with open(filepath, mode, encoding=encoding) as f:
         return f.read()
 
-def load_json(filepath, mode="r", encoding="utf-8"):
+
+def json(filepath, mode="r", encoding="utf-8"):
     """
     Loads the contents of a JSON file.
 
@@ -39,7 +40,7 @@ def load_json(filepath, mode="r", encoding="utf-8"):
         return json.load(f)
 
 
-def load_csv(filepath, mode="r", encoding="utf-8", delimiter=","):
+def csv(filepath, mode="r", encoding="utf-8", delimiter=","):
     """
     Loads the contents of a CSV file.
 
