@@ -1,6 +1,6 @@
 import os
 
-def get_size(path):
+def Size(path):
     """
     Get the size of a file or the total size of all files in a directory.
 
@@ -25,7 +25,7 @@ def get_size(path):
         raise FileNotFoundError(f"No such file or directory: '{path}'")
 
 
-def delete(path):
+def Delete(path):
     """
     Delete a file or directory at the given path.
 
@@ -47,7 +47,7 @@ def delete(path):
         raise OSError(f"Unable to delete: '{path}'")
 
 
-def rename(src, dst):
+def Rename(src, dst):
     """
     Rename a file or directory from src to dst.
 
@@ -67,7 +67,7 @@ def rename(src, dst):
     os.rename(src, dst)
 
 
-def move(src, dst_dir):
+def Move(src, dst_dir):
     """
     Move a file or directory from its current location to another directory.
 
@@ -92,3 +92,16 @@ def move(src, dst_dir):
 
     dst = os.path.join(dst_dir, os.path.basename(src))
     shutil.move(src, dst)
+
+
+def ist(path):
+    """
+    List all files in a directory.
+
+    Args:
+        path (str): Path to a directory.
+
+    Returns:
+        list: List of file paths.
+    """
+    return [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]

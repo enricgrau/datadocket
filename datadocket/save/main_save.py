@@ -2,7 +2,7 @@ import json
 import csv
 
 
-def save_txt(filepath, data, mode="w", encoding="utf-8"):
+def Txt(filepath, data, mode="w", encoding="utf-8"):
     """
     Saves data to a text file.
 
@@ -18,7 +18,7 @@ def save_txt(filepath, data, mode="w", encoding="utf-8"):
         f.write(data)
 
 
-def save_json(filepath, data, mode="w", encoding="utf-8", **json_kwargs):
+def Json(filepath, data, mode="w", encoding="utf-8", **json_kwargs):
     """
     Saves data to a JSON file.
 
@@ -36,7 +36,7 @@ def save_json(filepath, data, mode="w", encoding="utf-8", **json_kwargs):
         json.dump(data, f, **json_kwargs)
 
 
-def save_csv(filepath, data, mode="w", encoding="utf-8", delimiter=",", newline=""):
+def Csv(filepath, data, mode="w", encoding="utf-8", delimiter=",", newline=""):
     """
     Saves data to a CSV file.
 
