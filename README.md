@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="datadocket logo" width="100%"/>
+</p>
+
 # datadocket
 
 A simple data loading and saving utility library for Python without bloat, no pandas, no numpy, no bs. Just vanilla Python.
