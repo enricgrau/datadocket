@@ -1,13 +1,15 @@
 import json
 import csv
 
-def Txt(filepath, mode="r", encoding="utf-8"):
+def Txt(filepath, mode="r", encoding="utf-8", split=False):
     """
     Loads the contents of a text file.
 
     Args:
         filepath (str): Path to the text file.
+        mode (str, optional): reading mode. Default is "r"
         encoding (str, optional): Encoding to use. Defaults to "utf-8".
+        split (bool, optional): Wether to split the text by linebreaks. If True returns a list. Default is False
 
     Returns:
         str: Contents of the file as a string.
@@ -16,8 +18,17 @@ def Txt(filepath, mode="r", encoding="utf-8"):
         FileNotFoundError: If the file does not exist.
         IOError: If there is an error reading the file.
     """
+    data = ""
     with open(filepath, mode, encoding=encoding) as f:
-        return f.read()
+        data = f.read()
+    
+    if split:
+        data = data.split("\n")
+        data = [item.strip() for item in data]
+
+    return data
+
+print(Txt("tests/data/test.txt", split=True))
 
 
 def Json(filepath, mode="r", encoding="utf-8"):
