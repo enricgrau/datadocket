@@ -1,6 +1,6 @@
 # datadocket
 
-A simple data loading and saving utility library for Python wihout bloat, no pandas, no nummpy, no bs. Just vanilla Python.
+A simple data loading and saving utility library for Python without bloat, no pandas, no numpy, no bs. Just vanilla Python.
 
 ## Installation
 
@@ -12,7 +12,7 @@ pip install datadocket
 
 ## Usage
 
-This is a function-based library. In an unconventioinal and controversial move, I've decided to name the functions with an upper case initial
+This is a function-based library. In an unconventional and controversial move, I've decided to name the functions with an upper case initial
 so it looks better. I know upper cases are supposed to be for classes... I don't care.
 
 ```python
