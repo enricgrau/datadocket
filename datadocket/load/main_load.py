@@ -28,8 +28,6 @@ def Txt(filepath, mode="r", encoding="utf-8", split=False):
 
     return data
 
-print(Txt("tests/data/test.txt", split=True))
-
 
 def Json(filepath, mode="r", encoding="utf-8"):
     """
