@@ -18,7 +18,7 @@ def Txt(filepath, data, mode="w", encoding="utf-8"):
         f.write(data)
 
 
-def Json(filepath, data, mode="w", encoding="utf-8", **json_kwargs):
+def Json(filepath, data, mode="w", encoding="utf-8", indent=2, **json_kwargs):
     """
     Saves data to a JSON file.
 
@@ -33,7 +33,7 @@ def Json(filepath, data, mode="w", encoding="utf-8", **json_kwargs):
         TypeError: If the data is not JSON serializable.
     """
     with open(filepath, mode, encoding=encoding) as f:
-        json.dump(data, f, **json_kwargs)
+        json.dump(data, f, indent=indent, **json_kwargs)
 
 
 def Csv(filepath, data, mode="w", encoding="utf-8", delimiter=",", newline=""):
