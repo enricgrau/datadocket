@@ -1,4 +1,5 @@
 import os
+import shutil
 
 def Size(path):
     """
@@ -80,9 +81,6 @@ def Move(src, dst_dir):
         NotADirectoryError: If the destination path is not a directory.
         OSError: If moving fails.
     """
-    import os
-    import shutil
-
     if not os.path.exists(src):
         raise FileNotFoundError(f"Source path does not exist: '{src}'")
     if not os.path.exists(dst_dir):
@@ -94,7 +92,7 @@ def Move(src, dst_dir):
     shutil.move(src, dst)
 
 
-def ist(path):
+def List(path):
     """
     List all files in a directory.
 
@@ -105,3 +103,27 @@ def ist(path):
         list: List of file paths.
     """
     return [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
+
+def Empty(path):
+    """
+    Delete all files in a directory.
+
+    Args:
+        path (str): Path to a directory.
+
+    Raises:
+        FileNotFoundError: If the path does not exist.
+        OSError: If deletion fails.
+    """
+    for file in List(path):
+        Delete(os.path.join(path, file))
+
+def Copy(src, dst):
+    """
+    Copy a file or directory from src to dst.
+
+    Args:
+        src (str): Path to the source file or directory.
+        dst (str): Path to the destination file or directory.
+    """
+    shutil.copy(src, dst)
