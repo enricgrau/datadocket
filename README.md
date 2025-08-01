@@ -28,6 +28,21 @@ dd.save.Csv('out.csv', data)
 
 ## Available modules:
 - `dd.load`: Loading functions for txt, json, csv
+  - `Json`
+  - `Txt`
+  - `Csv`
 - `dd.save`: Saving functions for txt, json, csv
+  - `Json`
+  - `Txt`
+  - `Csv`
 - `dd.utils`: Utility functions
+  - `Size`
+  - `Delete`
+  - `Rename`
+  - `Move`
+  - `List`
+  - `Empty`
+  - `Copy`
 - `dd.zip`: Zip file utilities
+  - `Zip`
+  - `Unzip`
