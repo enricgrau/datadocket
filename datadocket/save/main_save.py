@@ -1,5 +1,6 @@
 import json
 import csv
+import os
 
 
 def Txt(filepath, data, mode="w", encoding="utf-8"):
@@ -20,20 +21,43 @@ def Txt(filepath, data, mode="w", encoding="utf-8"):
 
 def Json(filepath, data, mode="w", encoding="utf-8", indent=2, **json_kwargs):
     """
-    Saves data to a JSON file.
-
+    Saves data to a JSON array file, properly handling append mode.
+    
     Args:
         filepath (str): Path to the JSON file.
         data (object): Data to write to the file (must be JSON serializable).
+        mode (str): File mode - "w" for write, "a" for append to array.
         encoding (str, optional): Encoding to use. Defaults to "utf-8".
         **json_kwargs: Additional keyword arguments for json.dump().
-
-    Raises:
-        IOError: If there is an error writing the file.
-        TypeError: If the data is not JSON serializable.
     """
-    with open(filepath, mode, encoding=encoding) as f:
-        json.dump(data, f, indent=indent, **json_kwargs)
+    if mode == "a":
+        # Append mode: load existing array, append new data, save back
+        if os.path.exists(filepath):
+            with open(filepath, 'r', encoding=encoding) as f:
+                existing_data = json.load(f)
+            # Ensure it's a list
+            if not isinstance(existing_data, list):
+                existing_data = [existing_data]
+            # Append new data
+            if isinstance(data, list):
+                existing_data.extend(data)
+            else:
+                existing_data.append(data)
+            # Save back
+            with open(filepath, 'w', encoding=encoding) as f:
+                json.dump(existing_data, f, indent=indent, **json_kwargs)
+        else:
+            # Create new file with array containing the data
+            with open(filepath, 'w', encoding=encoding) as f:
+                if isinstance(data, list):
+                    json.dump(data, f, indent=indent, **json_kwargs)
+                else:
+                    json.dump([data], f, indent=indent, **json_kwargs)
+    else:
+        # Write mode: standard behavior
+        with open(filepath, mode, encoding=encoding) as f:
+            json.dump(data, f, indent=indent, **json_kwargs)
+
 
 
 def Csv(filepath, data, mode="w", encoding="utf-8", delimiter=",", newline=""):

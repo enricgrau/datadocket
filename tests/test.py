@@ -39,10 +39,19 @@ def test_csv():
     assert not os.path.exists(save_path)
     print('CSV file deleted successfully.')
 
+def test_make_dir():
+    test_dir = os.path.join(os.path.dirname(__file__), 'test_dir')
+    dd.utils.MakeDir(test_dir)
+    assert os.path.exists(test_dir)
+    dd.utils.Delete(test_dir)
+    assert not os.path.exists(test_dir)
+
+
 def main():
     test_txt()
     test_json()
     test_csv()
+    test_make_dir()
     print('All tests passed!')
 
 if __name__ == '__main__':

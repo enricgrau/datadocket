@@ -127,3 +127,13 @@ def Copy(src, dst):
         dst (str): Path to the destination file or directory.
     """
     shutil.copy(src, dst)
+
+
+def MakeDir(path):
+    """
+    Create a directory at the given path.
+
+    Args:
+        path (str): Path to the directory.
+    """
+    os.makedirs(path, exist_ok=True)
