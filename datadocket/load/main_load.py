@@ -1,7 +1,11 @@
 import json
 import csv
 
-def Txt(filepath, mode="r", encoding="utf-8", split=False):
+def Txt(
+    filepath: str, 
+    mode: str = "r", 
+    encoding: str = "utf-8", 
+    split: bool = False):
     """
     Loads the contents of a text file.
 
@@ -29,7 +33,10 @@ def Txt(filepath, mode="r", encoding="utf-8", split=False):
     return data
 
 
-def Json(filepath, mode="r", encoding="utf-8"):
+def Json(
+    filepath: str,
+    mode: str = "r", 
+    encoding: str = "utf-8"):
     """
     Loads the contents of a JSON file.
 
@@ -49,7 +56,11 @@ def Json(filepath, mode="r", encoding="utf-8"):
         return json.load(f)
 
 
-def Csv(filepath, mode="r", encoding="utf-8", delimiter=","):
+def Csv(
+    filepath: str, 
+    mode: str = "r", 
+    encoding: str = "utf-8", 
+    delimiter: str = ","):
     """
     Loads the contents of a CSV file.
 

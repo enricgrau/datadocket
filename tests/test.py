@@ -46,6 +46,12 @@ def test_make_dir():
     dd.utils.Delete(test_dir)
     assert not os.path.exists(test_dir)
 
+def test_exists():
+    test_dir = os.path.join(os.path.dirname(__file__), 'test_dir')
+    dd.utils.MakeDir(test_dir)
+    assert dd.utils.Exists(test_dir)
+    dd.utils.Delete(test_dir)
+    assert not dd.utils.Exists(test_dir)
 
 def main():
     test_txt()

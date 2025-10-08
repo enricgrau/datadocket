@@ -3,7 +3,11 @@ import csv
 import os
 
 
-def Txt(filepath, data, mode="w", encoding="utf-8"):
+def Txt(
+    filepath: str, 
+    data: str, 
+    mode: str = "w", 
+    encoding: str = "utf-8"):
     """
     Saves data to a text file.
 
@@ -19,7 +23,13 @@ def Txt(filepath, data, mode="w", encoding="utf-8"):
         f.write(data)
 
 
-def Json(filepath, data, mode="w", encoding="utf-8", indent=2, **json_kwargs):
+def Json(
+    filepath: str, 
+    data: object, 
+    mode: str = "w", 
+    encoding: str = "utf-8", 
+    indent: int = 2, 
+    **json_kwargs):
     """
     Saves data to a JSON array file, properly handling append mode.
     
@@ -60,7 +70,13 @@ def Json(filepath, data, mode="w", encoding="utf-8", indent=2, **json_kwargs):
 
 
 
-def Csv(filepath, data, mode="w", encoding="utf-8", delimiter=",", newline=""):
+def Csv(
+    filepath: str, 
+    data: list, 
+    mode: str = "w", 
+    encoding: str = "utf-8", 
+    delimiter: str = ",", 
+    newline: str = ""):
     """
     Saves data to a CSV file.
 
