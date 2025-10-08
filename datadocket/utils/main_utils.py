@@ -1,7 +1,7 @@
 import os
 import shutil
 
-def Size(path):
+def Size(path: str) -> int:
     """
     Get the size of a file or the total size of all files in a directory.
 
@@ -26,7 +26,7 @@ def Size(path):
         raise FileNotFoundError(f"No such file or directory: '{path}'")
 
 
-def Delete(path):
+def Delete(path: str):
     """
     Delete a file or directory at the given path.
 
@@ -48,7 +48,9 @@ def Delete(path):
         raise OSError(f"Unable to delete: '{path}'")
 
 
-def Rename(src, dst):
+def Rename(
+    src: str, 
+    dst: str):
     """
     Rename a file or directory from src to dst.
 
@@ -68,7 +70,9 @@ def Rename(src, dst):
     os.rename(src, dst)
 
 
-def Move(src, dst_dir):
+def Move(
+    src: str, 
+    dst_dir: str):
     """
     Move a file or directory from its current location to another directory.
 
@@ -92,7 +96,7 @@ def Move(src, dst_dir):
     shutil.move(src, dst)
 
 
-def List(path):
+def List(path: str):
     """
     List all files in a directory.
 
@@ -104,7 +108,7 @@ def List(path):
     """
     return [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
 
-def Empty(path):
+def Empty(path: str):
     """
     Delete all files in a directory.
 
@@ -118,7 +122,9 @@ def Empty(path):
     for file in List(path):
         Delete(os.path.join(path, file))
 
-def Copy(src, dst):
+def Copy(
+    src: str, 
+    dst: str):
     """
     Copy a file or directory from src to dst.
 
@@ -129,7 +135,7 @@ def Copy(src, dst):
     shutil.copy(src, dst)
 
 
-def MakeDir(path):
+def MakeDir(path: str):
     """
     Create a directory at the given path.
 
@@ -137,3 +143,17 @@ def MakeDir(path):
         path (str): Path to the directory.
     """
     os.makedirs(path, exist_ok=True)
+
+
+def Exists(path: str) -> bool:
+    """
+    Checks if a file of directory exists at the given path.
+
+    Args:
+        path (str): Path to the file or directory.
+
+    Returns:
+        bool: True if the file or directory exists, False otherwise.
+    """
+    return os.path.exists(path)
+    
