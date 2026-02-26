@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="datadocket",
-    version="0.1.6",
+    version="0.1.7",
     description="A simple data loading and saving utility library.",
     author="Enric Grau-Luque",
     author_email="egl.energy796@passmail.com",

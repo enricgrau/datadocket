@@ -53,11 +53,24 @@ def test_exists():
     dd.utils.Delete(test_dir)
     assert not dd.utils.Exists(test_dir)
 
+def test_sql():
+    sql_path = os.path.join(test_dir, 'test.sql')
+    data = dd.load.Sql(sql_path)
+    print('Loaded SQL:', data)
+    save_path = os.path.join(test_dir, 'test_out.sql')
+    dd.save.Sql(save_path, data)
+    assert dd.load.Sql(save_path) == data
+    print('SQL save/load round-trip successful.')
+    dd.utils.Delete(save_path)
+    assert not os.path.exists(save_path)
+    print('SQL file deleted successfully.')
+
 def main():
     test_txt()
     test_json()
     test_csv()
     test_make_dir()
+    test_sql()
     print('All tests passed!')
 
 if __name__ == '__main__':
