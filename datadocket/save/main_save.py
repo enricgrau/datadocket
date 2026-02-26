@@ -69,7 +69,6 @@ def Json(
             json.dump(data, f, indent=indent, **json_kwargs)
 
 
-
 def Csv(
     filepath: str, 
     data: list, 
@@ -94,3 +93,24 @@ def Csv(
     with open(filepath, mode, encoding=encoding, newline=newline) as f:
         writer = csv.writer(f, delimiter=delimiter)
         writer.writerows(data)
+
+
+def Sql(
+    filepath: str,
+    data: list,
+    mode: str = "w",
+    encoding: str = "utf-8",
+    semicolon: bool = True,
+    strip: bool = True):
+    """
+    Saves data to a SQL file.
+    """
+    if semicolon:
+        if not data.rstrip().endswith(";"):
+            data += ";"
+        data = data.strip()
+    if strip:
+        data = data.strip()
+
+    Txt(filepath, data, mode, encoding)
+    

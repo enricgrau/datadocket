@@ -48,3 +48,23 @@ dd.save.Csv('out.csv', data)
 - `dd.zip`: Zip file utilities
   - `Zip`: Compress a file into a .zip archive
   - `Unzip`: Decompress a .zip archive
+
+
+## Run tests
+
+To run the built-in tests, first install your local version of `datadocket` (including any local changes you've made) into your current Python environment by running:
+
+```bash
+pip install -e .
+```
+
+This command should be run from the root of the repository. The `-e` flag installs the package in "editable" mode, so changes to the source code are immediately reflected without needing a reinstall.
+
+Then, use the following command from the root of the repository:
+
+```bash
+python -m tests.test
+```
+
+This will execute a suite of quick round-trip tests for TXT, JSON, CSV, and SQL file loading and saving, as well as basic file utilities.
+All test outputs will be printed to the console.

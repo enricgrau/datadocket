@@ -1,6 +1,7 @@
 import json
 import csv
 
+
 def Txt(
     filepath: str, 
     mode: str = "r", 
@@ -81,3 +82,32 @@ def Csv(
     with open(filepath, mode, encoding=encoding, newline='') as f:
         reader = csv.reader(f, delimiter=delimiter)
         return [row for row in reader]
+
+
+def Sql(
+    filepath: str,
+    mode: str = "r",
+    encoding: str = "utf-8",
+    semicolon: bool = True,
+    strip: bool = True  ):
+    """
+    Loads the contents of a SQL file.
+
+    Args:
+        filepath (str): Path to the SQL file.
+        encoding (str, optional): Encoding to use. Defaults to "utf-8".
+        semicolon (bool, optional): Whether to add a semicolon to the end of the SQL. Defaults to True.
+        strip (bool, optional): Whether to strip the SQL. Defaults to True.
+
+    Returns:
+        list: List of SQL statements.
+    """
+    data = Txt(filepath, mode, encoding)
+    if semicolon:
+        data = data.strip()
+        if not data.endswith(";"):
+            data += ";"
+    if strip:
+        data = data.strip()
+
+    return data
