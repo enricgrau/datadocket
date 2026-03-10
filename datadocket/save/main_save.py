@@ -4,10 +4,11 @@ import os
 
 
 def Txt(
-    filepath: str, 
-    data: str, 
-    mode: str = "w", 
-    encoding: str = "utf-8"):
+        filepath: str, 
+        data: str, 
+        mode: str = "w", 
+        encoding: str = "utf-8"
+    ):
     """
     Saves data to a text file.
 
@@ -24,12 +25,13 @@ def Txt(
 
 
 def Json(
-    filepath: str, 
-    data: object, 
-    mode: str = "w", 
-    encoding: str = "utf-8", 
-    indent: int = 2, 
-    **json_kwargs):
+        filepath: str, 
+        data: object, 
+        mode: str = "w", 
+        encoding: str = "utf-8", 
+        indent: int = 2, 
+        **json_kwargs
+    ):
     """
     Saves data to a JSON array file, properly handling append mode.
     
@@ -70,12 +72,13 @@ def Json(
 
 
 def Csv(
-    filepath: str, 
-    data: list, 
-    mode: str = "w", 
-    encoding: str = "utf-8", 
-    delimiter: str = ",", 
-    newline: str = ""):
+        filepath: str, 
+        data: list, 
+        mode: str = "w", 
+        encoding: str = "utf-8", 
+        delimiter: str = ",", 
+        newline: str = ""
+    ):
     """
     Saves data to a CSV file.
 
@@ -96,12 +99,13 @@ def Csv(
 
 
 def Sql(
-    filepath: str,
-    data: list,
-    mode: str = "w",
-    encoding: str = "utf-8",
-    semicolon: bool = True,
-    strip: bool = True):
+        filepath: str,
+        data: list,
+        mode: str = "w",
+        encoding: str = "utf-8",
+        semicolon: bool = True,
+        strip: bool = True
+    ):
     """
     Saves data to a SQL file.
     """

@@ -2,8 +2,9 @@ import os
 import zipfile
 
 def Zip(
-    input_filepath: str, 
-    output_zipfile: str = None):
+        input_filepath: str, 
+        output_zipfile: str = None
+    ) -> str:
     """
     Compress a file into a .zip archive.
 
@@ -37,8 +38,9 @@ def Zip(
 
 
 def Unzip(
-    zip_filepath: str, 
-    output_dir: str = None):
+        zip_filepath: str, 
+        output_dir: str = None
+    ) -> str:
     """
     Decompress a .zip archive.
 
