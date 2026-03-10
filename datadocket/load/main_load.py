@@ -3,10 +3,11 @@ import csv
 
 
 def Txt(
-    filepath: str, 
-    mode: str = "r", 
-    encoding: str = "utf-8", 
-    split: bool = False):
+        filepath: str, 
+        mode: str = "r", 
+        encoding: str = "utf-8", 
+        split: bool = False
+    ) -> str | list[str]:
     """
     Loads the contents of a text file.
 
@@ -35,9 +36,10 @@ def Txt(
 
 
 def Json(
-    filepath: str,
-    mode: str = "r", 
-    encoding: str = "utf-8"):
+        filepath: str,
+        mode: str = "r", 
+        encoding: str = "utf-8"
+    ):
     """
     Loads the contents of a JSON file.
 
@@ -58,10 +60,11 @@ def Json(
 
 
 def Csv(
-    filepath: str, 
-    mode: str = "r", 
-    encoding: str = "utf-8", 
-    delimiter: str = ","):
+        filepath: str, 
+        mode: str = "r", 
+        encoding: str = "utf-8", 
+        delimiter: str = ","
+    ):
     """
     Loads the contents of a CSV file.
 
@@ -85,11 +88,12 @@ def Csv(
 
 
 def Sql(
-    filepath: str,
-    mode: str = "r",
-    encoding: str = "utf-8",
-    semicolon: bool = True,
-    strip: bool = True  ):
+        filepath: str,
+        mode: str = "r",
+        encoding: str = "utf-8",
+        semicolon: bool = True,
+        strip: bool = True
+    ):
     """
     Loads the contents of a SQL file.
 

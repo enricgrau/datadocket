@@ -42,15 +42,28 @@ def Delete(path: str):
     if os.path.isfile(path) or os.path.islink(path):
         os.remove(path)
     elif os.path.isdir(path):
-        import shutil
         shutil.rmtree(path)
     else:
         raise OSError(f"Unable to delete: '{path}'")
 
 
+def Create(
+        path: str
+    ) -> bool:
+    """
+    Create a file or directory at the given path.
+    """
+    if not os.path.exists(path):
+        os.makedirs(path)
+        return True
+    else:
+        return False
+
+
 def Rename(
-    src: str, 
-    dst: str):
+        src: str, 
+        dst: str
+    ):
     """
     Rename a file or directory from src to dst.
 
@@ -71,8 +84,9 @@ def Rename(
 
 
 def Move(
-    src: str, 
-    dst_dir: str):
+        src: str, 
+        dst_dir: str
+    ):
     """
     Move a file or directory from its current location to another directory.
 
@@ -108,6 +122,7 @@ def List(path: str):
     """
     return [f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))]
 
+
 def Empty(path: str):
     """
     Delete all files in a directory.
@@ -122,9 +137,11 @@ def Empty(path: str):
     for file in List(path):
         Delete(os.path.join(path, file))
 
+
 def Copy(
-    src: str, 
-    dst: str):
+        src: str, 
+        dst: str
+    ):
     """
     Copy a file or directory from src to dst.
 
@@ -142,18 +159,24 @@ def MakeDir(path: str):
     Args:
         path (str): Path to the directory.
     """
-    os.makedirs(path, exist_ok=True)
+    os.makedirs(path)
+    return path
 
 
-def Exists(path: str) -> bool:
+def Exists(path: str, make_exists: bool = False) -> bool:
     """
     Checks if a file of directory exists at the given path.
 
     Args:
         path (str): Path to the file or directory.
-
+        make_exists (bool): If True, create the file or directory if it does not exist.
     Returns:
         bool: True if the file or directory exists, False otherwise.
     """
-    return os.path.exists(path)
-    
+    exists = os.path.exists(path)
+
+    if not exists and make_exists:
+        MakeDir(path)
+
+    return exists
+
